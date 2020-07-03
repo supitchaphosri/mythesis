@@ -1,0 +1,94 @@
+
+<form class="justify-content-center" method="POST">
+  {% csrf_token %}
+  <div class="">
+    <div class="col-auto my-1">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">ปีการศึกษา</span>
+        </div>
+        <select name="year" class="form-control mr-sm-2" id="inlineFormCustomSelect">
+              <option value="2562">2562</option>
+              <option value="2563">2563</option>
+              <option value="2564">2564</option>
+              <option value="2565">2565</option>
+        </select>
+        
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">ภาคการศึกษา</span>
+          </div>
+          <select name="semester" class="form-control mr-sm-2" id="inlineFormCustomSelect">
+                <option value="ภาคต้น">ภาคต้น</option>
+                <option value="ภาคปลาย">ภาคปลาย</option>
+                <option value="ภาคฤดูร้อน">ภาคฤดูร้อน</option>
+          </select>
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">จำนวนวิชา</span>
+          </div>
+          <select name="count" class="form-control mr-sm-2" id="inlineFormCustomSelect">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+          </select>
+       </div>
+    </div>
+  </div>
+</form>
+<div class="card-body bg-light">
+      <table class="table table-bordered bg-light" >
+                    <thead class="thead-info ">
+                        <tr >   
+                            <th scope="col">รหัสวิชา</th>
+                            <th scope="col">วิชา</th>
+                            <th scope="col">เกรด</th>
+                            <th scope="col"><button class="add btn btn-success">เพิ่ม</button></th>
+                        </tr>
+                    </thead>
+                    <tbody class="field_wrapper center"> 
+                    </tbody>
+        </table>
+        <center><button type="submit" class="btn btn-primary btn-lg " value="" style="float: center;">บันทึก</button></center>
+</form>
+</div>
+
+
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+          var maxField = 10; //Input fields increment limitation
+          var addButton = $('.add'); //Add button selector
+          var wrapper = $('.field_wrapper'); //Input field wrapper
+          var fieldHTML = '<tr><td>{{ form.SubjectID }}</td><td>{{ form.Subject }}</td><td>{{ form.Grade }}</tr>'; //New input field html 
+          var x = 1; //Initial field counter is 1
+          
+          //Once add button is clicked
+          $(addButton).click(function(){
+              //Check maximum number of input fields
+              if(x < maxField){ 
+                  x++; //Increment field counter
+                  $(wrapper).append(fieldHTML); //Add field html
+              }
+          });
+          
+          //Once remove button is clicked
+          $(wrapper).on('click', '.remove_button', function(e){
+              e.preventDefault();
+              $(this).parent('tr').remove(); //Remove field html
+              x--; //Decrement field counter
+          });
+      });
+      </script>
+      
+      

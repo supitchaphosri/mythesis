@@ -1,0 +1,156 @@
+{% extends "students/student/base.html" %}
+
+{% block content %}
+    
+<body id="pbd">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand text-light" href="#"><h3>ข้อมูลทั่วไปของนิสิต</h3></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav mr-auto">
+                          </ul>
+                          <button type="button" class="btn btn-success " data-toggle="modal" data-target="#exampleModalCenter">
+                            กรอกข้อมูลทั่วไปของนิสิต
+                          </button>
+                        </div>
+</nav>
+  <table class="table table-bordered ">
+  <thead>
+        <tr>
+          <th>ข้อมูล</th>
+          <th>ข้อมูลทั่วไปของนิสิต</th>
+        </tr>
+  </thead>
+
+  {% for a in student %}
+  <!--<tr>
+      <th>Picture</th>
+      <td>{{ a.student_picture }}</td></tr>
+  <tr>-->
+      <th >รหัสประจำตัวนิสิต</th>
+      <td>{{ a.student_id }}</td>
+  <tr>
+      <th >ชื่อ</th>
+      <td>{{ a.student_name}}</td></tr>
+  <tr>
+      <th >นามสกุล</th>
+      <td>{{ a.student_surname }}</td></tr>
+  <tr>
+      <th >ปีที่เข้าศึกษา</th>
+      <td>{{ a.student_year}}</td></tr>
+  <tr>
+      <th >GPA</th>
+      <td>{{ a.student_gpa }}</td></tr>
+  <tr>
+      <th >Email</th>
+      <td>{{ a.student_email}}</td></tr>
+  
+  
+
+ {% endfor %} 
+  </table>  
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">กรอกข้อมูลทั่วไปของนิสิต</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          {% csrf_token %}
+          {{ form }}
+          <div class="modal-footer"></div>
+          <center><button type="submit" class="btn btn-primary btn-lg " value="" style="float: center;">บันทึก</button></center>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+<!--
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#"><h3>กรอกข้อมูลของนิสิต</h3></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+    
+    <form method="POST">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-md-4 mb-3"><div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">รหัสประจำตัวนิสิต</span></div>
+                                        {{form.student_id}} 
+            </div>   
+        </div>
+        <div class="col-md-4 mb-3"><div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">ชื่อ</span></div>
+                                        {{form.student_name}}  
+            </div>   
+        </div>
+        <div class="col-md-4 mb-3"><div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">นามสกุล</span></div>
+                                        {{form.student_surname}} 
+            </div>   
+        </div>
+    </div>                                      
+    <div class="form-row">
+        <div class="col-md-4 mb-3"><div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">รหัสผ่าน</span></div>
+                                        {{form.student_password}} 
+            </div>   
+        </div>
+        <div class="col-md-4 mb-3"><div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">ปีที่เข้าศึกษา</span></div>
+                                        {{form.student_year}}  
+            </div>   
+        </div>
+        <div class="col-md-4 mb-3"><div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">GPA</span></div>
+                                        {{form.student_gpa}} 
+            </div>   
+        </div>
+    </div>  
+    <div class="form-row">
+        <div class="col-md-4 mb-3"><div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">Email</span></div>
+                                        {{form.student_email}} 
+            </div>   
+        </div>
+       <div class="col-md-4 mb-3"><div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">หน่วยกิตทั้งหมดที่เรียน</span></div>
+                                        {{form.student_totalcredit}} 
+            </div>   
+        </div>
+        <--
+        <div class="col-md-4 mb-3">
+            <div class="input-group-prepend">
+            </div>
+            <div class="custom-file">
+                {{form.student_picture}} 
+              <label class="custom-file-label" >Choose Your Picture</label>
+            </div>
+          </div>
+         
+    </div>  
+    
+    <br>
+    <center><button type="submit" class="btn btn-primary btn-lg " value="" style="float: center;">บันทึก</button></center>
+    
+  </form>
+-->
+	
+	
+
+
+</body>
+{% endblock content %}

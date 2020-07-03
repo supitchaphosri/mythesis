@@ -1,0 +1,52 @@
+{% extends "planners/planner/planner_base.html" %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"><h3>รายวิชาเรียนที่มีทั้งหมด</h3></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2 " input type="text" id="myInput" onkeyup="myFunction()" placeholder="กรอกรหัสวิชา">
+    </form>
+  </div>
+</nav>
+
+  
+</table>
+<table  class="table table-striped table-bordered" style="width:100%" id="myTable">
+  <thead>
+    <tr>
+      <th scope="col">รหัสวิชา</th>
+      <th scope="col">ชื่อวิชาภาษาไทย</th>
+      <th scope="col">ชื่อวิชาภาษาอังกฤษ</th>
+      <th scope="col">กลุ่มสาระวิชา</th>
+      <th scope="col">หมวดวิชา</th>
+      <th scope="col">หน่วยกิต</th>
+    
+    </tr>
+  </thead>
+
+  
+  {% for e in s %}
+  
+  <tbody>
+   <tr>
+      <td>{{ e.subject_code }}</td>
+      <td>{{ e.subject_nameTH }}</td>
+      <td>{{ e.subject_nameEN }}</td>
+      <td>{{ e.subjectgroup.SubjectGroupName}}</td>
+      <td>{{ e.subjectgroup.category.CategoryNAme }}</td>
+      <td>{{ e.subject_credit }}</td>
+      
+      
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+
+{% endblock content %}

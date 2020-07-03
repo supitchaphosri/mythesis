@@ -1,0 +1,105 @@
+{% extends "planners/planner/planner_base.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-warning ">
+    <a class="navbar-brand text-dark" href="#"><h3>วางแผนการเรียน</h3></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+     </div>
+</nav>
+
+<!--ระบบวางแผน-->
+<table class="table table-responsive-sm table-responsive-md table-responsive-lg table-bordered text-center animated fadeIn" style="font-size: 1.7ex;">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th colspan="2" scope="col">8:00</th>
+      <th colspan="2" scope="col">9:00</th>
+      <th colspan="2" scope="col">10:00-</th>
+      <th colspan="2" scope="col">11:00-</th>
+      <th class="table-active" colspan="2" scope="col">12:00-13:00</th>
+      <th colspan="2" scope="col">13:00</th>
+      <th colspan="2" scope="col">14:00</th>
+      <th colspan="2" scope="col">15:00</th>
+      <th colspan="2" scope="col">16:00</th>
+      <th colspan="2" scope="col">17:00</th>
+      <th colspan="2" scope="col">18:00</th>
+      <th colspan="2" scope="col">19:00</th>
+      <th colspan="2" scope="col">20:00-</th>
+      
+      <tr>
+        <th scope="col"></th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+        <th colspan="1" scope="col">00</th>
+        <th colspan="1" scope="col">30</th>
+      </tr>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">M</th>
+      <td colspan="4">่สา่ส่ส่ส่ส่</td></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td>
+      <td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td>
+    </tr>
+    <tr>
+      <th scope="row">T</th>
+      <td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td>
+      <td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td>
+    </tr>
+    <tr>
+      <th scope="row">W</th>
+      <td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td>
+      <td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td>
+    </tr>
+    <tr>
+      <th scope="row">T</th>
+      <td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td>
+      <td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td>
+    </tr>
+    <tr>
+      <th scope="row">F</th>
+      <td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td>
+      <td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td>
+    </tr>
+
+  </tbody>
+</table>
+<div class="btn-group mr-2">
+  <button type="button" class="btn btn-sm btn-outline-danger float-right font-weight-bold">Delete</button>
+  <button type="button" class="btn btn-sm btn-outline-info font-weight-bold">Reset</button>
+</div>
+<button type="button" class="btn btn-outline-dark float-right mb-3 ml-3" data-toggle="modal" data-target="#exampleModalCenter">เพิ่มรายวิชา (กำหนดเอง)</button>
+<a  class="btn btn-outline-success float-right mb-3 ml-3"  href="{% url 'planner:planning' %}">OVERVIEW</a>       
+
+{% include "planners/planner/planner_modal_form.html" %}  
+{% endblock content %}
+{% block javascript %}
+<script type="text/javascript">
+</script>
+{% endblock javascript %}

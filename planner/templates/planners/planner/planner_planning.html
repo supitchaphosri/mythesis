@@ -1,0 +1,69 @@
+{% extends "planners/planner/planner_base.html" %}
+{% block content %}
+<button type="button" class="btn btn-outline-dark float-right mb-3 ml-3" data-toggle="modal" data-target="#exampleModalCenter">เพิ่มแผนการเรียน</button>
+<div class="row align-self-center"><div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+  <h3 class="text-center mb-3">Overview</h3>
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="row">
+      <div class="col-sm text-center mt-2 font-weight-bold" style="vertical-align: middle;">1</div>
+        <div class="col-sm text-center m-2">3 รายวิชา</div><div class="col-sm text-center m-2">4 หน่วยกิต</div>
+      <div class="col-sm text-center"><a class="btn btn-light btn-block " href="{% url 'planner:plan-form' %}">View</a></div>
+    </div>
+  </div>
+</div>
+        
+          
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+             <div class="alert alert-success" role="alert"><h5 class="alert-heading font-weight-bold">คู่มือการใช้งาน</h5>
+                  <hr>
+                  <div styles="[object Object]">
+                    <div class="btn-toolbar justify-content-between align-items-center">
+                      <h6>เมื่อต้องการสร้างแผนการเรียนใหม่ </h6>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div styles="[object Object]">
+                    <div class="btn-toolbar justify-content-between align-items-center">
+                      <h6>1. ให้กดเพิ่มแผนการเรียน </h6>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div styles="[object Object]">
+                    <div class="btn-toolbar justify-content-between align-items-center">
+                      <h6>2. ระบบจะแสดงหน้าต่างสอบถามการสร้างแผนการเรียน</h6>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div styles="[object Object]">
+                    <div class="btn-toolbar justify-content-between align-items-center">
+                      <h6>3. ถ้ายังไม่มีแผนการเรียนให้เลือก สร้างแผนการเรียนใหม่ ใส่ชื่อแผนการเรียน</h6>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div styles="[object Object]">
+                    <div class="btn-toolbar justify-content-between align-items-center">
+                      <h6>4. จะได้ตารางมาหนึ่งตาราง</h6>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div styles="[object Object]"><div class="btn-toolbar justify-content-between align-items-center">
+                    <h6>5. เพิ่มรายวิชาที่ต้องการออกแบบ </h6>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       </div>   
+         
+{% include "planners/planner/planner_table.html" %} 
+{% include "planners/planner/planner_option.html" %}  
+{% endblock content %}
+{% block javascript %}
+<script type="text/javascript">
+
+
+</script>
+{% endblock javascript %}

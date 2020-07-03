@@ -1,0 +1,23 @@
+<!--table-->
+<table class="table table-bordered bg-warinig">
+  <thead>
+    <tr>
+      <th scope="col">รหัสวิชา</th>
+      <th scope="col">หน่วยกิต</th>  
+      <th scope="col">วันที่เรียน</th>
+      <th scope="col">เริ่มเรียน</th>
+      <th scope="col">ถึง</th>
+     </tr>
+  </thead>
+  <tbody>
+      {% for a in add_sj %}
+      <tr>   
+        <td>{{ a.subject}}</td>
+        <td>{{ a.credit}}</td>
+        <td>{{ a.addsubject_date }}</td>
+        <td>{{ a.addsubject_startime }}</td>
+        <td>{{ a.addsubject_endtime }}</td>
+      </tr>
+      {% endfor%}
+    </tbody>
+  </table>

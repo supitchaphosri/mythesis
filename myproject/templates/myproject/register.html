@@ -1,0 +1,22 @@
+{% extends 'myproject/base.html' %}
+
+{% block content %}
+<h1 class="display-4"><center>REGISTER</center></h1>
+<br>
+<body id="rbd">
+   <div class="text-center">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button  class="btn btn-outline-dark" type="submit">Sign Up</button>
+    </form>
+   
+    If you already have an account <a href="/login" target="blank"><strong>login</strong></a> instead.
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+{% endblock %}
+

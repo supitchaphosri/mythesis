@@ -1,0 +1,58 @@
+<body>
+    {% extends "students/student/base.html" %}
+        {% block content %}
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+          <a class="navbar-brand" href="#"><h3>ประวัติการเรียนของนิสิต</h3></a>
+          <a class="btn btn-dark" href="http://127.0.0.1:8000/admin/" role="button">แก้ไชประวัตินิสิต</a>  
+        </nav>
+        <br>
+        
+      
+        <!--{% include "students/student/history_form.html" %}-->
+         {% for a in H %}
+         <table  class="table table-striped table-bordered" style="width:100%" id="myTable">
+          <thead>
+            <tr>
+              <th scope="col">ปีการศึกษา</th>
+              <th scope="col">ภาคการศึกษา</th>
+              <th scope="col">รหัสวิชา</th>
+              <th scope="col">วิชา</th>
+              <th scope="col">เกรด</th>
+              <th scope="col">GPAX</th>
+              <th scope="col">GPA</th>
+            
+            </tr>
+          </thead>
+
+          <tbody>
+           <tr><td>{{ a.Year }}</td><td>{{ a.Semester}}</td><td>{{ a.SubjectID1}}</td><td>{{ a.Subject1}}</td><td>{{ a.Grade1}}</td><td></td><td></td></tr>
+           <tr><td></td><td></td><td>{{ a.SubjectID2}}</td><td>{{ a.Subject2}}</td><td>{{ a.Grade2}}</td><td></td><td></td></tr>
+           <tr><td></td><td></td><td>{{ a.SubjectID3}}</td><td>{{ a.Subject3}}</td><td>{{ a.Grade3}}</td><td></td><td></td></tr>
+           <tr><td></td><td></td><td>{{ a.SubjectID4}}</td><td>{{ a.Subject4}}</td><td>{{ a.Grade4}}</td><td></td><td></td></tr>
+           <tr><td></td><td></td><td>{{ a.SubjectID5}}</td><td>{{ a.Subject5}}</td><td>{{ a.Grade5}}</td><td></td><td></td></tr>
+           <tr><td></td><td></td><td>{{ a.SubjectID6}}</td><td>{{ a.Subject6}}</td><td>{{ a.Grade6}}</td><td></td><td></td></tr>
+           <tr><td></td><td></td><td>{{ a.SubjectID7}}</td><td>{{ a.Subject7}}</td><td>{{ a.Grade7}}</td><td></td><td></td></tr>
+           <tr><td></td><td></td><td>{{ a.SubjectID8}}</td><td>{{ a.Subject8}}</td><td>{{ a.Grade8}}</td><td></td><td></td></tr>
+           <tr><td></td><td></td><td>{{ a.SubjectID9}}</td><td>{{ a.Subject9}}</td><td>{{ a.Grade9}}</td><td></td><td></td></tr>
+           <tr><td></td><td></td><td>{{ a.SubjectID10}}</td><td>{{ a.Subject10}}</td><td>{{ a.Grade10}}</td><td></td><td></td></tr>
+           <tr><td></td><td></td><td><b>สถานภาพ</b></td><td></td><td></td><td><b>{{ a.GPAX}}</b></td><td><b>{{ a.GPA}}</b</td></tr>
+          
+          </tbody>
+         
+
+         {% endfor %}
+               
+                
+  
+
+
+  
+    {% endblock %}
+
+    {% block scrips %}
+
+    {% endblock %}
+
+</body>
+

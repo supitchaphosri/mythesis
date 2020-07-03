@@ -1,0 +1,378 @@
+{% extends "planners/planner/planner_base.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-success ">
+    <a class="navbar-brand text-dark" href="#"><h3>คำนวนเกรดภาคการศึกษาล่วงหน้า</h3></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+     </div>
+</nav>
+<CENTER>
+
+<FORM Name="GPACalcForm" class="form-inline">
+
+<table  class="table table-borderless table-bordered" BORDER=5  CELLPADDING="5" CELLSPACING="2" >
+<thead class="thead-dark">
+<TH>ชื่อวิชา</TH>
+<TH>เกรดที่ได้</TH>
+<TH>หน่วยกิต</TH>
+<TR ALIGN=CENTER>
+</thead>
+<TD COLSPAN=3><INPUT class="btn btn-success" TYPE="BUTTON" VALUE="Calculate" NAME="CalcButton" OnClick="gpacalc()"></TD>
+
+</TR>
+{% for a in H%}
+<TR>
+<TD>{{ a.Subject1}}</TD>   
+<TD><INPUT TYPE=TEXT SIZE=5 ALIGN=TOP MAXLENGTH=10 value="{{ a.Grade1}}"> </TD>  
+<TD><INPUT TYPE=TEXT SIZE=5 ALIGN=TOP MAXLENGTH=10 value="{{ a.credit1}}"></TD>     
+</TR>
+<TR>
+<TD>{{ a.Subject2}}</TD>   
+<TD><INPUT TYPE=TEXT SIZE=5  ALIGN=TOP MAXLENGTH=10 value="{{ a.Grade2}}"> </TD>  
+<TD><INPUT TYPE=TEXT SIZE=5  ALIGN=TOP MAXLENGTH=10 value="{{ a.credit2}}"></TD>     
+</TR>
+<TR>
+<TD>{{ a.Subject3}}</TD>   
+<TD><INPUT TYPE=TEXT SIZE=5 ALIGN=TOP MAXLENGTH=10 value="{{ a.Grade3}}"> </TD>  
+<TD><INPUT TYPE=TEXT SIZE=5  ALIGN=TOP MAXLENGTH=10 value="{{ a.credit3}}"></TD>     
+</TR>
+<TR>
+<TD>{{ a.Subject4}}</TD>   
+<TD><INPUT TYPE=TEXT SIZE=5  ALIGN=TOP MAXLENGTH=10 value="{{ a.Grade4}}"> </TD>  
+<TD><INPUT TYPE=TEXT SIZE=5  ALIGN=TOP MAXLENGTH=10 value="{{ a.credit4}}"></TD>     
+</TR>
+<TR>
+<TD>{{ a.Subject5}}</TD>   
+<TD><INPUT TYPE=TEXT SIZE=5 ALIGN=TOP MAXLENGTH=10 value="{{ a.Grade5}}"> </TD>  
+<TD><INPUT TYPE=TEXT SIZE=5  ALIGN=TOP MAXLENGTH=10 value="{{ a.credit5}}"></TD>     
+</TR>
+<TR>
+<TD>{{ a.Subject6}}</TD>   
+<TD><INPUT TYPE=TEXT SIZE=5 ALIGN=TOP MAXLENGTH=10 value="{{ a.Grade6}}"> </TD>  
+<TD><INPUT TYPE=TEXT SIZE=5  ALIGN=TOP MAXLENGTH=10 value="{{ a.credit6}}"></TD>     
+</TR>
+
+{% endfor %}
+
+<TR>
+<TD><input type="name" class="name" id="name" ></TD>
+
+<TD><INPUT TYPE=TEXT class="form-control" SIZE=5 NAME="GR1" ALIGN=TOP MAXLENGTH=10 ></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR1" ALIGN=TOP MAXLENGTH=10></TD>
+
+</TR>
+
+<TR>
+
+<TD><input type="name" class="name" id="name" placeholder=""></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR2" ALIGN=TOP MAXLENGTH=10></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR2" ALIGN=TOP MAXLENGTH=10></TD>
+
+</TR>
+
+<TR>
+
+<TD><input type="name" class="name" id="name" placeholder=""></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR3" ALIGN=TOP MAXLENGTH=10></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR3" ALIGN=TOP MAXLENGTH=10></TD>
+
+</TR>
+
+<TR>
+
+<TD><input type="name" class="name" id="name" placeholder=""></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR4" ALIGN=TOP MAXLENGTH=10></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR4" ALIGN=TOP MAXLENGTH=10></TD>
+
+</TR>
+
+<TR>
+
+<TD><input type="name" class="name" id="name" placeholder=""></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR5" ALIGN=TOP MAXLENGTH=10></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR5" ALIGN=TOP MAXLENGTH=10></TD>
+
+</TR>
+
+<TR>
+
+<TD><input type="name" class="name" id="name" placeholder=""></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR6" ALIGN=TOP MAXLENGTH=10></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR6" ALIGN=TOP MAXLENGTH=10></TD>
+
+</TR>
+
+
+
+<TR>
+
+<TD><input type="name" class="name" id="name" placeholder=""></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR7" ALIGN=TOP MAXLENGTH=10></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR7" ALIGN=TOP MAXLENGTH=10></TD>
+
+</TR>
+
+
+
+<TR>
+
+<TD><input type="name" class="name" id="name" placeholder=""></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR8" ALIGN=TOP MAXLENGTH=10></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR8" ALIGN=TOP MAXLENGTH=10></TD>
+
+</TR>
+
+
+<TR>
+
+<TD><input type="name" class="name" id="name" placeholder=""></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR9" ALIGN=TOP MAXLENGTH=10></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR9" ALIGN=TOP MAXLENGTH=10></TD>
+
+</TR>
+
+
+
+<TD><input type="name" class="name" id="name" placeholder=""></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR10" ALIGN=TOP MAXLENGTH=10></TD>
+
+<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR10" ALIGN=TOP MAXLENGTH=10></TD>
+
+</TR>
+
+<TR ALIGN=CENTER>
+
+<TD COLSPAN=3><INPUT class="btn btn-success" TYPE="BUTTON" VALUE="Calculate" NAME="CalcButton" OnClick="gpacalc()"></TD>
+
+</TR>
+</TABLE>
+
+</FORM>
+
+<BR>
+
+<P>
+
+
+
+<P>
+
+</CENTER>
+
+
+
+<BR>
+
+
+
+
+
+   <SCRIPT LANGUAGE="JavaScript">
+
+<!-- 
+
+function gpacalc()
+
+{
+
+//define valid grades and their values
+
+var gr = new Array(7); 
+
+var cr = new Array(7);
+
+var ingr = new Array(9);
+
+var incr = new Array(9);
+
+
+
+// define valid grades and their values
+
+var grcount = 7; 
+
+gr[0] = "A"; 
+
+cr[0] = 4; 
+
+gr[1] = "B+";
+
+cr[1] = 3.50;
+
+gr[2] = "B";
+
+cr[2] = 3;
+
+gr[3] = "C+";
+
+cr[3] = 2.50;
+
+gr[4] = "C";
+
+cr[4] = 2;
+
+gr[5] = "D+";
+
+cr[5] = 1.50;
+
+gr[6] = "D";
+
+cr[6] = 1;
+
+gr[7] = "F";
+
+cr[7] = 0;
+
+
+
+// retrieve user input
+
+ingr[0] = document.GPACalcForm.GR1.value;
+
+ingr[1] = document.GPACalcForm.GR2.value;
+
+ingr[2] = document.GPACalcForm.GR3.value;
+
+ingr[3] = document.GPACalcForm.GR4.value;
+
+ingr[4] = document.GPACalcForm.GR5.value;
+
+ingr[5] = document.GPACalcForm.GR6.value;
+
+ingr[6] = document.GPACalcForm.GR7.value;
+
+ingr[7] = document.GPACalcForm.GR8.value;
+
+ingr[8] = document.GPACalcForm.GR9.value;
+
+ingr[9] = document.GPACalcForm.GR10.value;
+
+incr[0] = document.GPACalcForm.CR1.value;
+
+incr[1] = document.GPACalcForm.CR2.value;
+
+incr[2] = document.GPACalcForm.CR3.value;
+
+incr[3] = document.GPACalcForm.CR4.value;
+
+incr[4] = document.GPACalcForm.CR5.value;
+
+incr[5] = document.GPACalcForm.CR6.value;
+
+incr[6] = document.GPACalcForm.CR7.value;
+
+incr[7] = document.GPACalcForm.CR8.value;
+
+incr[8] = document.GPACalcForm.CR9.value;
+
+incr[9] = document.GPACalcForm.CR10.value;
+
+
+// Calculate GPA
+
+var allgr =0;
+
+var allcr = 0;
+
+var gpa = 0;
+
+for (var x = 0; x < 9 + 1; x++)
+
+	{
+
+	if (ingr[x] == "") break;
+
+//	if (isNaN(parseInt(incr[x]))) alert("Error- You did not enter a numeric credits value for Class If the class is worth 0 credits then enter the number 0 in the field."); 
+
+	var validgrcheck = 0;
+
+	for (var xx = 0; xx < grcount; xx++)
+
+		{
+
+		if (ingr[x] == gr[xx])
+
+			{
+
+			allgr = allgr + (parseInt(incr[x],9) * cr[xx]);
+
+			allcr = allcr + parseInt(incr[x],9);
+
+			validgrcheck = 1;
+
+			break;
+
+			}
+
+		}
+
+	if (validgrcheck == 0)
+
+		{
+
+		alert("Error- Could not recognize the grade entered for Class " + eval(x + 1) + ". Please use standard college grades in the form of A A- B+ ...F.");
+
+		return 0;
+
+		}
+
+	}
+
+
+
+// this if-check prevents a divide by zero error
+
+if (allcr == 0)
+
+	{
+
+	alert("Error- You did not enter any credit values! GPA = N/A");
+
+	return 0;
+
+	}
+
+
+
+gpa = allgr / allcr;
+
+
+
+alert("GPA =  " + eval(gpa));
+
+
+
+return 0;
+
+}
+
+
+
+//-->
+
+    </SCRIPT>
+
+
+{% endblock content %}

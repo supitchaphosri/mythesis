@@ -1,0 +1,19 @@
+{% extends 'myproject/base.html' %}
+
+{% block content %}
+<h1 class="display-4"><center>LOGIN</center></h1>
+<br>
+    {% include 'myproject/includes/messaging.html' %}
+    <body id="lbd">
+    <center>
+    <div class="container">
+        <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+            <button class="btn btn-outline-dark" type="submit">Login</button>
+        </form>
+        Don't have an account? <a href="/register" target="blank"><strong>register here</strong></a>!
+    </div>
+    </center>
+    </body>
+{% endblock %}

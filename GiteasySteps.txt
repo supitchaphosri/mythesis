@@ -1,0 +1,21 @@
+ขั้นตอน 
+git status 
+git init 
+git status 
+git remote add origin https://github.com/supitchaphosri/mythesis.git
+git remote origin https://.......
+git pull origin master
+git status
+git add . / git add index.html 
+git commit -m "ชื่อ"
+git push origin master
+---------
+git checkout <branch> เปลี่ยน 
+
+
+
+
+
+
+
+

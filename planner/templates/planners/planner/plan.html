@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+{% extends "planners/planner/planner_base.html" %}
+{% block content %}
+     <div class="card-body"><h1 align ="center" id = "plan_ids" style = "margin-top: 4%"> ชื่อแผน : {% for plan_names in plan_name %}{{ plan_names.plan }}{% endfor %} </h1></div>
+     <h5 id = "sssss"></h5>
+    <div class="table-responsive "></div>
+        <table class="table table-bordered table-hover" align ="center" id="plan_t">
+          <thead>
+            <tr>
+                <th style="width:10%;">เวลา</th>
+                <th style="width:11.25;" colspan="2">8.00</th>
+                <th style="width:11.25;" colspan="2">9.00</th>
+                <th style="width:11.25;" colspan="2">10.00</th>
+                <th style="width:11.25;" colspan="2">11.00</th>
+                <th style="width:11.25;" colspan="2">12.00</th>
+                <th style="width:11.25;" colspan="2">13.00</th>
+                <th style="width:11.25;" colspan="2">14.00</th>
+                <th style="width:11.25;" colspan="2">15.00</th>
+                <th style="width:11.25;" colspan="2">16.00</th>
+                <th style="width:11.25;" colspan="2">17.00</th>
+                <th style="width:11.25;" colspan="2">18.00</th>
+                <th style="width:11.25;" colspan="2">19.00</th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>
+                <th style="width:10%;">วัน</th>
+                <th style="width:11.25;">.00</th>
+                <th style="width:11.25;">.30</th>
+                <th style="width:11.25;">.00</th>
+                <th style="width:11.25;">.30</th>
+                <th style="width:11.25;">.00</th>
+                <th style="width:11.25;">.30</th>
+                <th style="width:11.25;">.00</th>
+                <th style="width:11.25;">.30</th>
+                <th style="width:11.25;">.00</th>
+                <th style="width:11.25;">.30</th>
+                <th style="width:11.25;">.00</th>
+                <th style="width:11.25;">.30</th>
+                <th style="width:11.25;">.00</th>
+                <th style="width:11.25;">.30</th>
+                <th style="width:11.25;">.00</th>
+                <th style="width:11.25;">.30</th>
+                <th style="width:11.25;">.00</th>
+                <th style="width:11.25;">.30</th>
+                <th style="width:11.25;">.00</th>
+                <th style="width:11.25;">.30</th>
+                <th style="width:11.25;">.00</th>
+                <th style="width:11.25;">.30</th>
+                <th style="width:11.25;">.00</th>
+                <th style="width:11.25;">.30</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="font-size:0.9em; " id = "sun">
+                <td style="text-align:center; vertical-align:center;  font-weight: bolder; font-size:1.2em;">อาทิตย์</td>
+ 
+            </tr>
+            
+            <tr style="font-size:0.9em; " id = "mon">
+		           <td style="text-align:center; vertical-align:center;  font-weight: bolder; font-size:1.2em;">จันทร์</td>
+            </tr>
+
+            <tr style="font-size:0.9em; " id = "tue">
+		           <td style="text-align:center; vertical-align:center;  font-weight: bolder; font-size:1.2em;">อังคาร</td>  
+            </tr>
+
+            <tr style="font-size:0.9em; " id = "wed">
+		           <td style="text-align:center; vertical-align:center;  font-weight: bolder; font-size:1.2em;">พุธ</td> 
+            </tr> 
+
+            <tr style="font-size:0.9em; " id = "thu">
+		          <td style="text-align:center; vertical-align:center;  font-weight: bolder; font-size:1.2em;">พฤหัสบดี</td> 
+            </tr>
+
+            <tr style="font-size:0.9em; " id = "fri">
+		        <td style="text-align:center; vertical-align:center;  font-weight: bolder; font-size:1.2em;">ศุกร์</td>
+              <!--<td height="30px" colspan="24" style="text-align:center; color: blue; font-size:1em;">
+              &lt;&lt; ======================================== วันนี้ไม่มีเรียน ======================================== &gt;&gt;-->
+             </tr>        
+           <tr style="font-size:0.9em; " id = "sat">
+            <td style="text-align:center; vertical-align:center;  font-weight: bolder; font-size:1.2em;">เสาร์</td>
+           </tr> 
+           
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="css_rp" align ="center"><button type="button" id = "btn1" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal">เพิ่มวิชา </button></div>
+    <br><br><br>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">เพิ่มแผนตารางเรียน</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="{% url 'planner:inser_plan' %}" method="post">{% csrf_token %}
+              <div class="form-group">
+                <label for="text" class="col-form-label">รหัสวิชา:</label>
+                <input type='text' class='form-control' id='Sub_ject_code'  name='Sub_ject_code'>
+                <input type='hidden' class='form-control' id='user'  name='user' value = "{{ user }}"> 
+                <input type='hidden' class='form-control' id='plan_id'  name='plan_id' value = "{{ plan_id }}">  
+              </div>
+              <div class="form-group" id ="Subject_datail">
+               </div>
+               <div class="form-group" id ="close_class">
+               </div>
+          </div>
+          <div class="modal-footer" >
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+
+<script>
+  add_data_to_table();
+  const input = document.querySelector('#Sub_ject_code');
+  input.addEventListener('input', updateValue);
+  function updateValue(e) {
+     {% for Subjects in Subject %}
+        if ( "{{ Subjects.Subject_ID }}" == e.target.value){
+            $( "#Subject_datail" ).html( "<label for='text' class='col-form-label'>ชื่อวิชา:</label> \
+                                <input type='text' class='form-control' id='Subject_name'  name='Subject_name' value ='{{ Subjects.Subject_name }}'> \
+                                <label for='text' class='col-form-label'>จำนวนหน่วยกิต:</label> \
+                                <input type='text' class='form-control' id='Subject_credit'  name='Subject_credit' value ='{{ Subjects.Subject_credit }}'> \
+                                <label for='text' class='col-form-label'>หมู่เรียน:</label> \
+                                <input type='text' class='form-control' id='group'  name='group' value ='{{ Subjects.group }}'> \
+                                <label for='exampleFormControlSelect2'>วัน:</label> \
+                                <select class='form-control'name = 'day_id''> \
+                                  <option selected=''>เลือกวันลง...</option> \
+                                  <option value='1'>อาทิตย์</option> \
+                                  <option value='2'>จันทร์</option> \
+                                  <option value='3'>อังคาร</option> \
+                                  <option value='4'>พุธ </option> \
+                                  <option value='5'>พฤหัสบดี</option> \
+                                  <option value='6'>ศุกร์</option> \
+                                  <option value='7'>เสาร์</option> \
+                                </select> \
+                                <label for='exampleFormControlSelect2'>เลือกเวลาเริ่มเรียน:</label> \
+                                <select class='form-control' id='Select_time' onchange = 'Endtime()' name = 'start_class''> \
+                                  <option selected=''>เวลาเริ่มเรียน...</option> \
+                                  <option value='08:00'>08:00</option> \
+                                  <option value='08:30'>08:30</option> \
+                                  <option value='09:00'>09:00</option> \
+                                  <option value='09:30'>09:30 </option> \
+                                  <option value='10:00'>10:00 </option> \
+                                  <option value='10:30'>10:30</option> \
+                                  <option value='11:00'>11:00</option> \
+                                  <option value='11:30'>11:30</option> \
+                                  <option value='12:00'>12:00</option> \
+                                  <option value='12:30'>12:30</option> \
+                                  <option value='13:00'>13:00</option> \
+                                  <option value='13:30'>13:30</option> \
+                                  <option value='14:00'>14:00</option> \
+                                  <option value='14:30'>14:30</option> \
+                                  <option value='15:00'>15:00</option> \
+                                  <option value='15:30'>15:30</option> \
+                                  <option value='16:00'>16:00</option> \
+                                  <option value='16:30'>16:30</option> \
+                                </select> \
+                                "); 
+              return ;
+           }
+    {% endfor %}
+    $( "#Subject_datail" ).html("ไม่มีวิชาในระบบ");
+    $( "#close_class" ).html(" ");         
+  }
+
+  function Endtime(){
+    var Subject_credit = document.getElementById("Subject_credit").value;
+    var get_time = document.getElementById("Select_time").value; //toFixed(2) //parseFloat()
+    var h = parseInt(get_time.substring(0,2));
+    var m = parseInt(get_time.substring(3,5));
+    if(Subject_credit == 1){
+      var h_ = h+1;
+      var m_ = m + 30;
+      if(m_ == 60 ){
+        var h_ = h_ + 1;
+        var m_ = "00";
+      }
+    }else{
+      var h_ = h+3;
+      var m_ = get_time.substring(3,5);
+    }
+    $('#close_class').html("<label for='exampleFormControlSelect2'>เวลาเลิกเรียน:</label> \
+                            <input type='text' class='form-control' id='time'  name = 'end_class' value ='"+h_ + ":" + m_+"'> \
+                            ");
+  }
+  /*$.ajax({
+
+          headers: { "X-CSRFToken": token },
+          url: "plans", 
+          type: "post",
+          data: {'Sub_id': },
+          success:function(){
+             
+        }
+    });*/
+    function add_data_to_table(){
+                {% for  plan_datas in  plan_data %}
+                    {% if  plan_datas.day_id == 1 %}
+                      cal_colspan("{{ plan_datas.Subject_ID.Subject_name }}",{{ plan_datas.Subject_ID.Subject_credit }},"{{ plan_datas.Time_start | time:'H.i' }}","{{ plan_datas.Time_close | time:'H.i' }}","sun");
+                    {% endif %}
+                    {% if  plan_datas.day_id == 2 %}
+                      cal_colspan("{{ plan_datas.Subject_ID.Subject_name }}",{{ plan_datas.Subject_ID.Subject_credit }},"{{ plan_datas.Time_start | time:'H.i' }}","{{ plan_datas.Time_close | time:'H.i' }}","mon");   
+                    {% endif %}
+                    {% if  plan_datas.day_id == 3 %}
+                      cal_colspan("{{ plan_datas.Subject_ID.Subject_name }}",{{ plan_datas.Subject_ID.Subject_credit }},"{{ plan_datas.Time_start | time:'H.i' }}","{{ plan_datas.Time_close | time:'H.i' }}","tue");
+                    {% endif %}
+                    {% if  plan_datas.day_id == 4 %}
+                      cal_colspan("{{ plan_datas.Subject_ID.Subject_name }}",{{ plan_datas.Subject_ID.Subject_credit }},"{{ plan_datas.Time_start | time:'H.i' }}","{{ plan_datas.Time_close | time:'H.i' }}","wed");
+                    {% endif %}
+                    {% if  plan_datas.day_id == 5 %}
+                      cal_colspan("{{ plan_datas.Subject_ID.Subject_name }}",{{ plan_datas.Subject_ID.Subject_credit }},"{{ plan_datas.Time_start | time:'H.i' }}","{{ plan_datas.Time_close | time:'H.i' }}","thu");
+                    {% endif %}
+                    {% if  plan_datas.day_id == 6 %}
+                     cal_colspan("{{ plan_datas.Subject_ID.Subject_name }}",{{ plan_datas.Subject_ID.Subject_credit }},"{{ plan_datas.Time_start | time:'H.i' }}","{{ plan_datas.Time_close | time:'H.i' }}","fri");
+                    {% endif %}
+                    {% if  plan_datas.day_id == 7 %}
+                     cal_colspan("{{ plan_datas.Subject_ID.Subject_name }}",{{ plan_datas.Subject_ID.Subject_credit }},"{{ plan_datas.Time_start | time:'H.i' }}","{{ plan_datas.Time_close | time:'H.i' }}","sat");
+                    {% endif %}
+                {% endfor %} 
+    }
+    function cal_colspan(S_name,S_c,start_class,end_class,day){
+                      var start_classs = parseFloat(start_class).toFixed(2);
+                      var end_classs = parseFloat(end_class).toFixed(2);
+                      var colspans = end_classs - start_classs;
+                      var free_time = start_classs - 8.00; 
+                     
+                      if(free_time == 0){
+                        //...not do 
+                      }else{
+                        var time = document.getElementById(day).lastElementChild.innerHTML;
+                        var v = parseFloat(time.substring(0,4)); //เก็บค่าเวลาแปลงเป็น Float แล้วคำนวน
+                        var c_ = (start_classs - v)*2; //
+                        var check = c_.toString();
+                        console.log(time);
+                        if(isNaN(v)){
+                          $("#"+day).append(" <td   colspan='"+Math.ceil(free_time*2)+"'> &nbsp;  &nbsp; </td>");
+                        }else if (c_ == 0){
+
+                        }else{
+                          if(parseInt(check.substring(2,4)) < 51){ //เช็คทศนิยมแล้วปักเศษ
+                               $("#"+day).append(" <td   colspan='"+c_+"'> &nbsp;  &nbsp; </td>");
+                          }else{ 
+                               $("#"+day).append(" <td   colspan='"+Math.ceil(c_)+"'> &nbsp;  &nbsp; </td>");
+                            }
+                        }
+                        
+                      }
+                      $("#"+day).append(" <td   colspan='"+Math.ceil(colspans * 2)+"' style='text-align:center; color: black;'><b>"+S_name+" <br>"+S_c+"</b><br><b>"+start_classs+"-"+end_classs+"</b></td> \
+                      <td style='display:none;'>"+end_classs+"</td>");
+    }
+</script>
+{% endblock content %}
+

@@ -1,0 +1,101 @@
+{% extends "planners/planner/planner_base.html" %}
+{% block content %}
+    <!-- Button trigger modal -->
+
+<div class="row align-self-center"><div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+  <h3 class="text-center mb-3">วางแผนการเรียน : Overview</h3>
+  <div class="card mb-3">
+    <div class="card-body">
+        <script> 
+            var i = 0;
+        </script>
+    {% for data in datas %} 
+      <script> 
+            i++;
+        </script>
+      <div class="row">
+      <div class="col-sm text-center mt-2 font-weight-bold" style="vertical-align: middle;"><script>document.write(i);</script></div>
+        <div class="col-sm text-center m-2">{{data.plan}}</div>
+        <div class="col-sm text-center m-2"><a class="btn btn-outline-info" href="/planner/create_plans/{{data.user_ID}}/{{data.id}}">view</a></div>
+      <div class="col-sm text-center"><button type="button" class="btn btn-danger" onclick = "window.location.href = '/planner/delete_plan/{{data.user_ID}}/{{data.id}}'">ลบ</button></div>
+    </div>
+    {% endfor %}
+          <div class="css_rp" align ="center"><button type="button" id = "btn1" class="btn btn-success"  data-toggle="modal" data-target="#exampleModal">เพิ่มแผน </button></div>
+  </div>
+</div>
+        
+          
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+             <div class="alert alert-success" role="alert"><h5 class="alert-heading font-weight-bold">คู่มือการใช้งาน</h5>
+                  <hr>
+                  <div styles="[object Object]">
+                    <div class="btn-toolbar justify-content-between align-items-center">
+                      <h6>เมื่อต้องการสร้างแผนการเรียนใหม่ </h6>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div styles="[object Object]">
+                    <div class="btn-toolbar justify-content-between align-items-center">
+                      <h6>1. ให้กดเพิ่มแผนการเรียน </h6>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div styles="[object Object]">
+                    <div class="btn-toolbar justify-content-between align-items-center">
+                      <h6>2. ระบบจะแสดงหน้าต่างสอบถามการสร้างแผนการเรียน</h6>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div styles="[object Object]">
+                    <div class="btn-toolbar justify-content-between align-items-center">
+                      <h6>3. ถ้ายังไม่มีแผนการเรียนให้เลือก สร้างแผนการเรียนใหม่ ใส่ชื่อแผนการเรียน</h6>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div styles="[object Object]">
+                    <div class="btn-toolbar justify-content-between align-items-center">
+                      <h6>4. จะได้ตารางมาหนึ่งตาราง</h6>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div styles="[object Object]"><div class="btn-toolbar justify-content-between align-items-center">
+                    <h6>5. เพิ่มรายวิชาที่ต้องการออกแบบ </h6>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       </div>   
+  <!-- Modal -->
+  
+
+   
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">เพิ่มแผนตารางเรียน</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+              <form action="{% url 'planner:insert' user.username %}" method="post">{% csrf_token %}
+                <div class="form-group">
+                  <label for="text" class="col-form-label">ชื่อแผน:</label>
+                  <input type="text" class="form-control" id="plan-name"  name="plan"> 
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}

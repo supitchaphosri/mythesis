@@ -1,0 +1,215 @@
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    position: relative;
+}
+
+.branch {
+    position: relative;
+    margin-left: 250px;
+}
+
+.branch:before {
+    content: "";
+    width: 50px;
+    border-top: 2px solid #eee9dc;
+    position: absolute;
+    left: -100px;
+    top: 50%;
+    margin-top: 1px;
+}
+
+.entry {
+    position: relative;
+    min-height: 60px;
+}
+
+.entry:before {
+    content: "";
+    height: 100%;
+    border-left: 2px solid #eee9dc;
+    position: absolute;
+    left: -50px;
+}
+
+.entry:after {
+    content: "";
+    width: 50px;
+    border-top: 2px solid #eee9dc;
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    margin-top: 1px;
+}
+
+.entry:first-child:before {
+    width: 10px;
+    height: 50%;
+    top: 50%;
+    margin-top: 2px;
+    border-radius: 10px 0 0 0;
+}
+
+.entry:first-child:after {
+    height: 10px;
+    border-radius: 10px 0 0 0;
+}
+
+.entry:last-child:before {
+    width: 10px;
+    height: 50%;
+    border-radius: 0 0 0 10px;
+}
+
+.entry:last-child:after {
+    height: 10px;
+    border-top: none;
+    border-bottom: 2px solid #eee9dc;
+    border-radius: 0 0 0 10px;
+    margin-top: -9px;
+}
+
+.entry.sole:before {
+    display: none;
+}
+
+.entry.sole:after {
+    width: 50px;
+    height: 0;
+    margin-top: 1px;
+    border-radius: 0;
+}
+
+.label {
+    display: block;
+    min-width: 150px;
+    padding: 5px 10px;
+    line-height: 20px;
+    text-align: center;
+    border: 2px solid #eee9dc;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -15px;
+}
+
+.simple {
+    position: relative;
+    min-height: 60px;
+}
+
+.simple:before {
+    content: "";
+    height: 100%;
+    border-left: 2px solid white;
+    position: absolute;
+    left: -50px;
+}
+
+.simple:after {
+    content: "";
+    width: 50px;
+    border-top: 2px solid white;
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    margin-top: 1px;
+}
+
+.last {
+    position: relative;
+    margin-left: 250px;
+}
+
+.last:before {
+    content: "";
+    width: 50px;
+    border-top: 2px solid white;
+    position: absolute;
+    left: -100px;
+    top: 50%;
+    margin-top: 1px;
+}
+
+.top {
+    position: relative;
+    min-height: 60px;
+}
+
+.top:before {
+    content: "";
+    height: 100%;
+    border-left: 2px solid white;
+    position: absolute;
+    left: -50px;
+}
+
+.top:after {
+    content: "";
+    width: 50px;
+    border-top: 2px solid white;
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    margin-top: 1px;
+}
+
+.topp {
+    position: relative;
+    margin-left: 250px;
+}
+
+.topp:before {
+    content: "";
+    width: 50px;
+    border-top: 2px solid white;
+    position: absolute;
+    left: -100px;
+    top: 50%;
+    margin-top: 1px;
+}
+
+.pt-3-half {
+    padding-top: 1.4rem;
+    }
+/*หน้าแรก Page */
+#hbd {
+    background-color: #b39ddb;
+}
+#homejumboton{
+    background-color: #7986cb;
+    color :#e8eaf6;
+    font-family: "calibri", Garamond, 'Comic Sans MS'; 
+}
+#rbd {
+    background-color: #f3e5f5;
+}
+#lbd {
+    background-color: #f3e5f5;
+}
+/*หน้าแรก student */
+#student_jumbotron {
+    background:#212121;
+    color :#ffc400;
+    font-family: "calibri", Garamond, 'Comic Sans MS'; 
+}
+#pbd{
+    background-color: #e0f2f1;
+}
+#bbd{
+    background-color:;
+}
+
+/*หน้าแรก planning */
+#planning_jumbotron {
+    background:#212121;
+    color :#00c853;
+    font-family: "calibri", Garamond, 'Comic Sans MS'; 
+}
